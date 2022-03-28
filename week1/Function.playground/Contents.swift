@@ -1,7 +1,9 @@
+import Foundation
 //Q1
-func greet(person: String) -> String {
-    return "Hello, Luke"
+func greet(person name: String) -> String {
+    return "Hello," + "\(name)"
 }
+greet(person: "Luke")
 
 //Q2
 func multipy(a: Int, b:Int = 10){
