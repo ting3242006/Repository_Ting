@@ -4,15 +4,22 @@ enum Gasoline: String {
     case oil98 = "98"
     case diesel = "diesel"
     
-    func getPrice(gasoline: Gasoline) -> Double {
-        switch gasoline{
-        case .oil92 : return 31.2
-        case .oil95 : return 32.7
-        case .oil98 : return 34.7
-        case .diesel : return 29.1
+func getPrice() -> String {
+    switch self {
+    case .oil92:
+        return "31.0"
+    case .oil95:
+        return "32.5"
+    case .oil98:
+        return "34.5"
+    case .diesel:
+        return "28.8"
         }
     }
 }
+
+let gas: Gasoline = .diesel
+gas.getPrice()
 
 Gasoline.oil92.rawValue
 
