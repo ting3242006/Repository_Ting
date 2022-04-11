@@ -36,6 +36,12 @@ class ViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    func clearTextField(){
+        accountTextField.text = ""
+        passwordTextField.text = ""
+        checkTextField.text = ""
+    }
+    
     @IBAction func selectSegment(_ sender: UISegmentedControl) {
         
         // Log in 狀態的顏色變化
@@ -44,12 +50,14 @@ class ViewController: UIViewController {
             checkTextField.isUserInteractionEnabled = false
             checkTextField.backgroundColor = .gray
             checkLabel.textColor = .lightGray
+            clearTextField()
         } else {
             // Sign Up 狀態的顏色變化
             changeSegmentedColor()
             checkTextField.isUserInteractionEnabled = true
             checkTextField.backgroundColor = .white
             checkLabel.textColor = .black
+            clearTextField()
         }
     }
     
@@ -72,9 +80,8 @@ class ViewController: UIViewController {
         }
         
         if logInSegmentControl.selectedSegmentIndex == 1 {
-            if accountTextField.text == "appworks_school@gmail.com" &&
-            passwordTextField.text == "1234" &&
-                checkTextField.text == "1234" {
+            if accountTextField.text?.count != 0 &&
+            passwordTextField.text == checkTextField.text{
                 showAlert(title: "Sign In", message: "Success!")
             } else if accountText.isEmpty == true {
                 showAlert(title: "Error", message: "Account should not be empty.")
