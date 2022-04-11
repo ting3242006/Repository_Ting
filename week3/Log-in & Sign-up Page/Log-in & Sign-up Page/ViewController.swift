@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         
         if logInSegmentControl.selectedSegmentIndex == 1 {
             if accountTextField.text?.count != 0 &&
-            passwordTextField.text == checkTextField.text{
+                passwordTextField.text == checkTextField.text && passwordTextField.text?.count != 0{
                 showAlert(title: "Sign In", message: "Success!")
             } else if accountText.isEmpty == true {
                 showAlert(title: "Error", message: "Account should not be empty.")
